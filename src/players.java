@@ -8,6 +8,7 @@ public class players {
 
     public String getName() {
         return name;
+
     }
     public String getCharacter() {
         String option = "";
