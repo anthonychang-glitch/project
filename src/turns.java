@@ -4,26 +4,26 @@ public class turns {
     private players player2;
     private int wins;
     private players currentTurn;
-    private
+    private players enemy;
+    Scanner scanner = new Scanner(System.in);
 
     public void gameplay () {
         System.out.print("Enter player one's name: ");
+        String player1 = scanner.nextLine();
+        System.out.print("Enter player two's name: ");
+        String player2 = scanner.nextLine();
     }
 
     private void playRound() {
         System.out.println();
         while (!player1.isDead() || !player2.isDead()) {
             System.out.println(enemy.getName() + "'s health: " + enemy.getHealth());
-            System.out.print("--> press enter to attack");
-            scan.nextLine();
+            System.out.print("Type one of the following moves: " + currentTurn.get());
             int playerAttack = currentTurn.attack();
             System.out.println(currentTurn.getName() + " attacks for " + playerAttack);
         }
-        System.out.println(currentPlayer.getName() + " has slain the " + enemy.getName());
-        int gold = enemy.dropGold();
-        System.out.println("It left behind " + gold + " gold");
-        currentPlayer.addGold(gold);
-        System.out.println(currentPlayer.getName() + " collects it and now has " + currentPlayer.getGold() + " gold");
+        System.out.println(currentTurn.getName() + " has slain the " + enemy.getName());
+        System.out.println(currentTurn.getName() + " has won!");
     }
 
     private boolean isGameOver() {
@@ -33,8 +33,10 @@ public class turns {
     private void swap() {
         if (currentTurn == player1) {
             currentTurn = player2;
+            enemy = player1;
         } else {
             currentTurn = player1;
+            enemy = player2;
         }
     }
 }

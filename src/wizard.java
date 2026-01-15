@@ -1,6 +1,11 @@
 public class wizard {
     private int dmg;
     private boolean stat;
+    private String all;
+
+    public String getAll() {
+        return "Enter the following moves - option 1: 'fireball', option 2: 'zap', option 3: 'boom'";
+    }
 
     public int getDmg() {
         return dmg;
@@ -25,7 +30,7 @@ public class wizard {
             } else {
                 stat = false;
             }
-        } else if (attackType.equals("you are coming down with me")) {
+        } else if (attackType.equals("boom")) {
             if ((Math.random()*9) + 1 == 1) {
                 dmg = 1000000;
             } else {
