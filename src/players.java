@@ -1,27 +1,39 @@
 public class players {
     private String name;
-    private int character;
-    public players (String name, int character) {
+    private Character character;
+    private int health;
+
+    public players (String name, int charNumber) {
         this.name = name;
-        this.character = character;
+        health = 100;
+        character = generateCharacter(charNumber);
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public boolean isDead() {
+        return health == 0;
     }
 
     public String getName() {
         return name;
-
     }
-    public String getCharacter() {
-        String option = "";
-        if (character == 1) {
-            option = "wizard";
-            return option;
-        } else if (character == 2) {
-            option = "assassin";
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    private Character generateCharacter(int characterChoice) {
+        Character option = null;
+        if (characterChoice == 1) {
+            option = new warrior();
+        } else if (characterChoice == 2) {
+            option = new assassin();
         } else {
-            option = "warrior";
-            return option;
+            option = new wizard();
         }
-        option = "not selected";
         return option;
     }
 }

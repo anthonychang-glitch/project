@@ -1,12 +1,16 @@
-public class wizard {
+public class wizard extends Character {
     private int dmg;
     private boolean stat;
-    private String all;
 
+    public wizard() {
+        super();
+    }
+
+    @Override
     public String getAll() {
         return "Enter the following moves - option 1: 'fireball', option 2: 'zap', option 3: 'boom'";
     }
-
+    @Override
     public int getDmg() {
         return dmg;
     }
@@ -15,6 +19,7 @@ public class wizard {
         return stat;
     }
 
+    @Override
     public void moves(String attackType) {
         if (attackType.equals("fireball")) {
             dmg = (int) (Math.random() * 21) + 10;

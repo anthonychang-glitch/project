@@ -18,12 +18,20 @@ public class turns {
         System.out.println();
         while (!player1.isDead() || !player2.isDead()) {
             System.out.println(enemy.getName() + "'s health: " + enemy.getHealth());
-            System.out.print("Type one of the following moves: " + currentTurn.get());
-            int playerAttack = currentTurn.attack();
+            System.out.print("Type one of the following moves: " + currentTurn.getCharacter());
+            int playerAttack = currentTurn.getCharacter().getDmg();
             System.out.println(currentTurn.getName() + " attacks for " + playerAttack);
         }
         System.out.println(currentTurn.getName() + " has slain the " + enemy.getName());
         System.out.println(currentTurn.getName() + " has won!");
+
+        if (currentTurn.getCharacter() instanceof wizard) {
+            wizard temp = (wizard) currentTurn.getCharacter();
+            temp.isStat();
+        } else if ( ) {
+
+        }
+
     }
 
     private boolean isGameOver() {

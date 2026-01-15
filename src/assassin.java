@@ -1,12 +1,16 @@
-public class assassin {
+public class assassin extends Character {
     private int dmg;
     private boolean dodge;
-    private String all;
 
+    public assassin() {
+        super();
+    }
+
+    @Override
     public String getAll() {
         return "Enter the following moves - option 1: 'jab', option 2: 'lunge', option 3: 'invis'";
     }
-
+    @Override
     public int getDmg() {
         return dmg;
     }
@@ -15,6 +19,7 @@ public class assassin {
         return dodge;
     }
 
+    @Override
     public void moves(String attackType) {
         if (attackType.equals("jab")) {
             dmg = (int) (Math.random() * 15) + 10;
