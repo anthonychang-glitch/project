@@ -28,11 +28,11 @@ public class players {
     private Character generateCharacter(int characterChoice) {
         Character option = null;
         if (characterChoice == 1) {
-            option = new warrior();
+            option = new wizard();
         } else if (characterChoice == 2) {
             option = new assassin();
         } else {
-            option = new wizard();
+            option = new warrior();
         }
         return option;
     }

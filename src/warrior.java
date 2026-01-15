@@ -21,15 +21,21 @@ public class warrior extends Character {
 
     @Override
     public void moves(String attackType) {
+        int mult;
+        if (rage) {
+            mult = 2;
+        } else {
+            mult = 1;
+        }
         if (attackType.equals("axe")) {
-            dmg = (int) (Math.random() * 21) + 10;
+            dmg = (int) (Math.random() * 21) * mult + 10;
             if ((Math.random()*4) + 1 == 1) {
                 rage = true;
             } else {
                 rage = false;
             }
         } else if (attackType.equals("tank")) {
-            dmg = (int) (Math.random() * 11) + 11;
+            dmg = (int) (Math.random() * 11) * mult + 11;
             if ((Math.random()*4) + 1 == 1) {
                 rage = true;
             } else {

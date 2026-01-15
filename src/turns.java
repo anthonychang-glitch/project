@@ -26,10 +26,14 @@ public class turns {
         System.out.println(currentTurn.getName() + " has won!");
 
         if (currentTurn.getCharacter() instanceof wizard) {
-            wizard temp = (wizard) currentTurn.getCharacter();
-            temp.isStat();
-        } else if ( ) {
-
+            wizard temp1 = (wizard) currentTurn.getCharacter();
+            temp1.isStat();
+        } else if (currentTurn.getCharacter() instanceof assassin) {
+            assassin temp3 = (assassin) currentTurn.getCharacter();
+            temp3.isDodge();
+        } else if (currentTurn.getCharacter() instanceof warrior) {
+            warrior temp3 = (warrior) currentTurn.getCharacter();
+            temp3.isRage();
         }
 
     }
