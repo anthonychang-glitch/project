@@ -35,7 +35,7 @@ public class assassin extends Character {
             } else {
                 dodge = false;
             }
-        } else if (attackType.equals("invis")) {
+        } else if (attackType.equals("invis - 'I wonder where he went?'")) {
             if ((Math.random()*9) + 1 <= 7) {
                 dodge = true;
             } else {

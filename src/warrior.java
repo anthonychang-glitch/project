@@ -28,17 +28,14 @@ public class warrior extends Character {
         } else {
             mult = 1;
         }
+        if (rage) {
+            rage = false;
+        }
         if (attackType.equals("axe")) {
             dmg = (int) (Math.random() * 21) * mult + 10;
-            if (rage) {
-                rage = false;
-            }
-            rage = (Math.random() * 4) + 1 == 1;
+            rage = (Math.random() * 3) + 1 == 1;
         } else if (attackType.equals("takedown")) {
             dmg = (int) (Math.random() * 11) * mult + 11;
-            if (rage) {
-                rage = false;
-            }
             rage = (Math.random() * 4) + 1 == 1;
         } else if (attackType.equals("berserker")) {
                 rage = true;

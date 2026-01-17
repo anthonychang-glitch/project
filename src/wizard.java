@@ -21,17 +21,20 @@ public class wizard extends Character {
 
     @Override
     public void moves(String attackType) {
+        stat = false;
         if (attackType.equals("fireball")) {
             dmg = (int) (Math.random() * 21) + 10;
             if ((Math.random()*9) + 1 <= 3) {
                 stat = true;
+                System.out.println("stunning enemy");
             } else {
                 stat = false;
             }
         } else if (attackType.equals("zap")) {
             dmg = (int) (Math.random() * 11) + 8;
-            if ((Math.random()*9) + 1 < 5) {
+            if ((Math.random()*9) + 1 < 6) {
                 stat = true;
+                System.out.println("ELECTRO - FRIED: The enemy is stunned!");
             } else {
                 stat = false;
             }
@@ -39,9 +42,11 @@ public class wizard extends Character {
             if ((Math.random()*9) + 1 == 1) {
                 dmg = 1000000;
                 stat = false;
+                System.out.println("KABOOM!");
             } else {
                 dmg = 0;
                 stat = false;
+                System.out.println("oops that missed");
             }
         }
     }

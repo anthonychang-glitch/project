@@ -2,6 +2,7 @@ public class players {
     private String name;
     private Character character;
     private int health;
+    private boolean stunned;
 
     public players (String name, int charNumber) {
         this.name = name;
@@ -9,11 +10,12 @@ public class players {
         character = generateCharacter(charNumber);
     }
 
-    public void dmgtake (int takeDamage) {
-        health-= takeDamage;
-        if(health <= 0) {
-            health = 0;
-        }
+    public boolean isStunned() {
+        return stunned;
+    }
+
+    public void setStunned(boolean stunned) {
+        this.stunned = stunned;
     }
 
     public int getHealth() {
@@ -30,6 +32,13 @@ public class players {
 
     public Character getCharacter() {
         return character;
+    }
+
+    public void dmgtake (int takeDamage) {
+        health -= takeDamage;
+        if(health <= 0) {
+            health = 0;
+        }
     }
 
     private Character generateCharacter(int characterChoice) {
