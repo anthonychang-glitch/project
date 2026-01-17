@@ -2,7 +2,6 @@ import java.util.Scanner;
 public class turns {
     private players player1;
     private players player2;
-    private int wins;
     private players currentTurn;
     private players enemy;
     Scanner scanner = new Scanner(System.in);
@@ -17,31 +16,41 @@ public class turns {
         name = scanner.nextLine();
         System.out.println("press 1 for wizard, press 2 for assassin, or press 3 for warrior: ");
         num1 = Integer.parseInt(scanner.nextLine());
-        player1 = new players(name, num1);
+        player2 = new players(name, num1);
+        playRound();
     }
 
     private void playRound() {
+        boolean beforeStun = true;
+        boolean dodged = false;
+        currentTurn=player1;
+        enemy=player2;
+        String playerChoice = "";
         System.out.println();
         while (!player1.isDead() || !player2.isDead()) {
-            System.out.println(enemy.getName() + "'s health: " + enemy.getHealth());
-            System.out.print("Type one of the following moves: " + currentTurn.getCharacter());
-            int playerAttack = currentTurn.getCharacter().getDmg();
-            System.out.println(currentTurn.getName() + " attacks for " + playerAttack);
+            if (beforeStun) {
+                System.out.println("Type one of the following moves " + currentTurn.getName() + ": " + currentTurn.getCharacter().getAll());
+                playerChoice = scanner.nextLine();
+                currentTurn.getCharacter().moves(playerChoice);
+                int playerAttack = currentTurn.getCharacter().getDmg();
+                if (!dodged) {
+                    System.out.println(currentTurn.getName() + " attacks for " + playerAttack);
+                    enemy.dmgtake(playerAttack);
+                } else {
+                    System.out.println("The enemy dodged!");
+                }
+                if (currentTurn.getCharacter() instanceof assassin temp3) {
+                    dodged = temp3.isDodge();
+
+                }
+                System.out.println(enemy.getName() + "'s health: " + enemy.getHealth());
+                if (currentTurn.getCharacter() instanceof wizard temp1) {
+                    beforeStun = !temp1.isStat();
+                }
+            }
+            swap();
         }
-        System.out.println(currentTurn.getName() + " has slain the " + enemy.getName());
         System.out.println(currentTurn.getName() + " has won!");
-
-        if (currentTurn.getCharacter() instanceof wizard) {
-            wizard temp1 = (wizard) currentTurn.getCharacter();
-            temp1.isStat();
-        } else if (currentTurn.getCharacter() instanceof assassin) {
-            assassin temp3 = (assassin) currentTurn.getCharacter();
-            temp3.isDodge();
-        } else if (currentTurn.getCharacter() instanceof warrior) {
-            warrior temp3 = (warrior) currentTurn.getCharacter();
-            temp3.isRage();
-        }
-
     }
 
     private boolean isGameOver() {

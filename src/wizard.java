@@ -8,7 +8,7 @@ public class wizard extends Character {
 
     @Override
     public String getAll() {
-        return "Enter the following moves - option 1: 'fireball', option 2: 'zap', option 3: 'boom'";
+        return "option 1: 'fireball', option 2: 'zap', option 3: 'boom'";
     }
     @Override
     public int getDmg() {
@@ -30,7 +30,7 @@ public class wizard extends Character {
             }
         } else if (attackType.equals("zap")) {
             dmg = (int) (Math.random() * 11) + 8;
-            if ((Math.random()*9) + 1 < 7) {
+            if ((Math.random()*9) + 1 < 5) {
                 stat = true;
             } else {
                 stat = false;
@@ -38,6 +38,7 @@ public class wizard extends Character {
         } else if (attackType.equals("boom")) {
             if ((Math.random()*9) + 1 == 1) {
                 dmg = 1000000;
+                stat = false;
             } else {
                 dmg = 0;
                 stat = false;

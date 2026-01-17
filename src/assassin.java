@@ -8,7 +8,7 @@ public class assassin extends Character {
 
     @Override
     public String getAll() {
-        return "Enter the following moves - option 1: 'jab', option 2: 'lunge', option 3: 'invis'";
+        return "option 1: 'jab', option 2: 'lunge', option 3: 'invis'";
     }
     @Override
     public int getDmg() {
@@ -29,14 +29,14 @@ public class assassin extends Character {
                 dodge = false;
             }
         } else if (attackType.equals("lunge")) {
-            dmg = (int) (Math.random() * 11) + 5;
+            dmg = (int) (Math.random() * 11) + 8;
             if ((Math.random()*9) + 1 < 5) {
                 dodge = true;
             } else {
                 dodge = false;
             }
         } else if (attackType.equals("invis")) {
-            if ((Math.random()*9) + 1 <= 8) {
+            if ((Math.random()*9) + 1 <= 7) {
                 dodge = true;
             } else {
                 dmg = 0;

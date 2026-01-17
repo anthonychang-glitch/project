@@ -9,6 +9,13 @@ public class players {
         character = generateCharacter(charNumber);
     }
 
+    public void dmgtake (int takeDamage) {
+        health-= takeDamage;
+        if(health <= 0) {
+            health = 0;
+        }
+    }
+
     public int getHealth() {
         return health;
     }
