@@ -21,31 +21,33 @@ public class turns {
     }
 
     private void playRound() {
-        boolean beforeStun = true;
+        boolean beforeStun;
         boolean dodged = false;
         currentTurn=player1;
         enemy=player2;
         String playerChoice = "";
-        System.out.println();
         while (!player1.isDead() || !player2.isDead()) {
+            if (currentTurn.getCharacter() instanceof wizard temp1) {
+                beforeStun = !temp1.isStat();
+            } else {
+                beforeStun = true;
+            }
             if (beforeStun) {
+                System.out.println("-------------------------------------------------------");
                 System.out.println("Type one of the following moves " + currentTurn.getName() + ": " + currentTurn.getCharacter().getAll());
                 playerChoice = scanner.nextLine();
                 currentTurn.getCharacter().moves(playerChoice);
                 int playerAttack = currentTurn.getCharacter().getDmg();
+                System.out.println(currentTurn.getName() + " attacks for " + playerAttack);
                 if (!dodged) {
-                    System.out.println(currentTurn.getName() + " attacks for " + playerAttack);
                     enemy.dmgtake(playerAttack);
+                    System.out.println(enemy.getName() + "'s health: " + enemy.getHealth());
                 } else {
                     System.out.println("The enemy dodged!");
+                    dodged = false;
                 }
                 if (currentTurn.getCharacter() instanceof assassin temp3) {
                     dodged = temp3.isDodge();
-
-                }
-                System.out.println(enemy.getName() + "'s health: " + enemy.getHealth());
-                if (currentTurn.getCharacter() instanceof wizard temp1) {
-                    beforeStun = !temp1.isStat();
                 }
             }
             swap();

@@ -8,7 +8,7 @@ public class warrior extends Character {
 
     @Override
     public String getAll() {
-        return "option 1: 'axe', option 2: 'tank', option 3: 'berserker'";
+        return "option 1: 'axe', option 2: 'takedown', option 3: 'berserker'";
     }
     @Override
     public int getDmg() {
@@ -24,23 +24,22 @@ public class warrior extends Character {
         int mult;
         if (rage) {
             mult = 2;
+            System.out.println("PLAYER IS RAGED!");
         } else {
             mult = 1;
         }
         if (attackType.equals("axe")) {
             dmg = (int) (Math.random() * 21) * mult + 10;
-            if ((Math.random()*4) + 1 == 1) {
-                rage = true;
-            } else {
+            if (rage) {
                 rage = false;
             }
+            rage = (Math.random() * 4) + 1 == 1;
         } else if (attackType.equals("takedown")) {
             dmg = (int) (Math.random() * 11) * mult + 11;
-            if ((Math.random()*4) + 1 == 1) {
-                rage = true;
-            } else {
+            if (rage) {
                 rage = false;
             }
+            rage = (Math.random() * 4) + 1 == 1;
         } else if (attackType.equals("berserker")) {
                 rage = true;
             }
