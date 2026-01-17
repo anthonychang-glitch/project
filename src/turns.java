@@ -9,9 +9,15 @@ public class turns {
 
     public void gameplay () {
         System.out.print("Enter player one's name: ");
-        String player1 = scanner.nextLine();
+        String name = scanner.nextLine();
+        System.out.println("press 1 for wizard, press 2 for assassin, or press 3 for warrior: ");
+        int num1 = Integer.parseInt(scanner.nextLine());
+        player1 = new players(name, num1);
         System.out.print("Enter player two's name: ");
-        String player2 = scanner.nextLine();
+        name = scanner.nextLine();
+        System.out.println("press 1 for wizard, press 2 for assassin, or press 3 for warrior: ");
+        num1 = Integer.parseInt(scanner.nextLine());
+        player1 = new players(name, num1);
     }
 
     private void playRound() {
