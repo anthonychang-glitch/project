@@ -8,7 +8,7 @@ public class warrior extends Character {
 
     @Override
     public String getAll() {
-        return "option 1: 'axe', option 2: 'takedown', option 3: 'berserker'";
+        return "option 1: 'axe', option 2: 'takedown', option 3: 'berserker' ";
     }
     @Override
     public int getDmg() {
