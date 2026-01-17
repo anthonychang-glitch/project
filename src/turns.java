@@ -22,7 +22,6 @@ public class turns {
 
     private void playRound() {
         boolean dodged = false;
-        boolean check;
         currentTurn=player1;
         enemy=player2;
         String playerChoice = "";
